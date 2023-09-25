@@ -43,8 +43,8 @@ for customer in matching_customers:
 # Print the number of Reviews for Each customer
 print("\nNumber of Reviews for Each customer:")
 for customer in Customer.all():
-    num_reviews = customer.num_reviews()
-    print(f"{customer.full_name}'s Reviews: {num_reviews}")
+    num_review = customer.num_review()
+    print(f"{customer.full_name}'s Reviews: {num_review}")
 
 # Print the list of reviews for each customer
 print("\nList of Reviews for Each Customer:")

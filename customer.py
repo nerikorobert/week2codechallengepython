@@ -1,66 +1,44 @@
 from review import Review
 
 class Customer:
-    CUSTOMERS = []  # A list to store all customer instances
+    CUSTOMERS = [] # list of all customers
 
-    def __init__(self, given_name, family_name):
+    def __init__(self,given_name,family_name):
         self._given_name = given_name
         self._family_name = family_name
-        self.reviews = []  # List to store reviews associated with this customer
-        Customer.CUSTOMERS.append(self)  # Add the instance to the list of all customers
+        self.reviews = [] # List to store reviews associated with this customer
+        Customer.CUSTOMERS.append(self) # Add the instance to the list of all customers
 
     @property
     def given_name(self):
-        """Return the given name of the customer."""
-        return self._given_name
-
+        return self._given_name #Return given name of customer
+        
+    
     def family_name(self):
-        """Return the family name of the customer."""
-        return self._family_name
-
+        return self._family_name #Return family name of customer
+        
     @property
     def full_name(self):
-        """Return the full name of the customer."""
-        return f"{self._given_name} {self._family_name}"
-
+        return f"{self._given_name} {self._family_name}" #Return full name of customer
+        
     @classmethod
     def all(cls):
-        """Return a list of all customer instances."""
-        return cls.CUSTOMERS
-
+        return cls.CUSTOMERS #returns a list of all customer instances
+        
     def add_review(self, review):
-        """Add a review to this customer's list of reviews."""
-        self.reviews.append(review)
-
+        self.reviews.append(review) # Add the review to this customer's list of reviews
+        
     def num_review(self):
-        """Return the number of reviews by this customer."""
-        return len(self.reviews)
-
+        return len(self.reviews) # Number of reviews by this customer
+        
     @classmethod
-    def find_by_name(cls, name):
-        """
-        Find and return a customer instance by full name.
-
-        Args:
-            name (str): The full name to search for.
-
-        Returns:
-            Customer or None: The found customer instance or None if not found.
-        """
+    def find_by_name(cls,name):
         for customer in cls.CUSTOMERS:
             if customer.full_name == name:
-                return customer
-        return None
+                return customer # Find and return a customer instance by full name
+            return None # Return None if customer not found
 
     @classmethod
-    def find_all_by_given_name(cls, name):
-        """
-        Find and return all customer instances with a specific given name.
-
-        Args:
-            name (str): The given name to search for.
-
-        Returns:
-            list: A list of customer instances with the given name.
-        """
+    def find_all_by_given_name(cls,name):
         return [customer for customer in cls.CUSTOMERS if customer._given_name == name]
+        #Finds and returns all customers instances with a specific given name
